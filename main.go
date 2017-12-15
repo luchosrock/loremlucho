@@ -14,9 +14,10 @@ import (
 
 // our main function
 func main() {
+	port := os.Getenv("PORT")
 	router := mux.NewRouter()
 	router.HandleFunc("/{width}/{height}", GetImage).Methods("GET")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	log.Fatal(http.ListenAndServe(port, router))
 }
 
 //GetImage load lucho image
